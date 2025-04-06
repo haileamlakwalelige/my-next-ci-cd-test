@@ -16,10 +16,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'  # Specify a compatible version (18.x or higher)
+          node-version: '18.x'
+
+      - name: Clear npm cache
+        run: npm cache clean --force
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Use ci for a clean install
 
       - name: Build Next.js app
         run: npm run build
