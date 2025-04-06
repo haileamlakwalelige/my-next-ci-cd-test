@@ -16,7 +16,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'  # Use '16.x' to specify version 16 or higher
+          node-version: '18.x'  # Specify a compatible version (18.x or higher)
 
       - name: Install dependencies
         run: npm install
