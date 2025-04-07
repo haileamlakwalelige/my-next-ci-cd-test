@@ -1,4 +1,4 @@
-name: Deploy to cPanel via FTP
+name: 🚀 Deploy Next.js to FTP Server
 
 on:
   push:
@@ -6,33 +6,33 @@ on:
       - main
 
 jobs:
-  web-deploy:
-    name: Deploy to cPanel
+  build-and-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # or your Node version
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: npm install
 
-      - name: Build Next.js app
+      - name: 🛠 Build project
         run: npm run build
 
-      - name: Export static site
+      - name: 📁 Export static site (for static hosting)
         run: npm run export
 
-      - name: FTP Deploy
+      - name: 📤 Upload via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: out
+          local-dir: out/
           server-dir: /next.heldertechnologies.com/
