@@ -6,17 +6,13 @@ on:
       - main # Change this if your default branch is different
 
 jobs:
-  deploy:
+  web-deploy:
+    name: Deploy to cPanel
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "18.x"
 
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
