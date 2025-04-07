@@ -37,4 +37,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # local-dir: out  # Use 'out' for static exports
-          server-dir: /next.heldertechnologies.com
+          server-dir: /next.heldertechnologies.com/
